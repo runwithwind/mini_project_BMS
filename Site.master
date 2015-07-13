@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="zh">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title><%: Page.Title %>- My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:PlaceHolder runat="server">           
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.5.3.js") %>"></script>
+    </asp:PlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title"><asp:Localize ID="SysName" runat="server" Text="<%$ Resources:lang,SysNameRes %>"></asp:Localize></p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    <a href="?currentculture=zh-cn"> 中文(中国) </a>  <!--jordan -->
+                    <a href="?currentculture=en-us">ENGLISH(USA)</a>    <!--jordan -->
+                    
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li><a id="A1" runat="server" href="~/Main.aspx"><asp:Localize ID="Main" runat="server" Text="<%$ Resources:lang, mainRes %>"></asp:Localize></a></li>      <!--jordan -->
+                        <li><a id="A2" runat="server" href="~/Query_employee.aspx"><asp:Localize ID="QueryE" runat="server" Text="<%$ Resources:lang, QueryERes %>"></asp:Localize></a></li>        <!--jordan -->
+                        <li><a id="A3" runat="server" href="~/Query_book.aspx"><asp:Localize ID="QueryB" runat="server" Text="<%$ Resources:lang, QueryBRes %>"></asp:Localize></a></li>        <!--jordan -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div style="text-align:center;">
+                <p style="font-size:large;">
+                    &copy; <%: DateTime.Now.Year %> - Trend University Group4
+                </p>
+            </div>
+        </div>
+    </footer>
+    </form>
+</body>
+</html>
